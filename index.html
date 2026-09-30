@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honneyleth "Hani" Gavina | Nursing Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rose-bg': '#fdf6f7',
+                        'rose-card': '#ffffff',
+                        'rose-border': '#fce7f3',
+                        'rose-subtle': '#fbcfe8',
+                        'rose-main': '#e11d48',
+                        'rose-soft': '#f472b6',
+                        'rose-dark': '#881337',
+                        'slate-dark': '#334155',
+                        'slate-light': '#64748b',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .verse-slide {
+            transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+            opacity: 0;
+            transform: translateY(12px);
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .verse-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="bg-rose-bg text-slate-dark font-sans selection:bg-rose-subtle selection:text-rose-dark antialiased">
+
+    <!-- Minimal Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-rose-bg/90 backdrop-blur-md border-b border-rose-border/80 transition-all">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-9 h-9 rounded-full bg-rose-subtle/50 border border-rose-soft/40 flex items-center justify-center text-rose-main text-sm transition-transform group-hover:scale-105">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <div>
+                    <span class="font-serif text-lg font-semibold tracking-tight text-slate-dark block leading-none">Honneyleth Gavina</span>
+                    <span class="text-[11px] text-rose-main font-medium tracking-widest uppercase">Student Nurse</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-light">
+                <a href="#about" class="hover:text-rose-main transition-colors">About</a>
+                <a href="#verses" class="hover:text-rose-main transition-colors">Verses</a>
+                <a href="#skills" class="hover:text-rose-main transition-colors">Skills</a>
+                <a href="#journey" class="hover:text-rose-main transition-colors">Journey</a>
+                <a href="#contact" class="px-5 py-2 rounded-full border border-rose-soft/40 text-rose-main hover:bg-rose-main hover:text-white transition-all text-xs font-semibold uppercase tracking-wider">
+                    Get In Touch
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="mobile-toggle" class="md:hidden text-slate-dark hover:text-rose-main p-2 focus:outline-none" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars text-xl" id="toggle-icon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-drawer" class="hidden md:hidden bg-white border-b border-rose-border px-6 py-6 space-y-4 shadow-sm">
+            <a href="#about" class="mobile-nav-link block text-sm font-medium text-slate-dark hover:text-rose-main">About</a>
+            <a href="#verses" class="mobile-nav-link block text-sm font-medium text-slate-dark hover:text-rose-main">Bible Verses</a>
+            <a href="#skills" class="mobile-nav-link block text-sm font-medium text-slate-dark hover:text-rose-main">Skills & Competencies</a>
+            <a href="#journey" class="mobile-nav-link block text-sm font-medium text-slate-dark hover:text-rose-main">Clinical Journey</a>
+            <a href="#contact" class="mobile-nav-link block text-center w-full py-2.5 rounded-full bg-rose-main text-white text-xs font-semibold uppercase tracking-wider">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-16 md:py-24">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Profile Image Component with Fallback -->
+                <div class="md:col-span-5 flex justify-center order-1 md:order-2">
+                    <div class="relative group">
+                        <!-- Soft decorative blur circle behind photo -->
+                        <div class="absolute -inset-2 bg-gradient-to-tr from-rose-subtle to-rose-soft/30 rounded-full blur-2xl opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                        
+                        <!-- Image Container with Soft Pink Framing -->
+                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border-4 border-white shadow-xl shadow-rose-soft/10 overflow-hidden bg-rose-100 flex items-center justify-center ring-1 ring-rose-border">
+                            <img src="hani.jpg" 
+                                 alt="Honneyleth Hani Gavina" 
+                                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex flex-col items-center justify-center bg-rose-100 text-rose-dark p-6 text-center\'><i class=\'fa-solid fa-user-nurse text-5xl text-rose-soft mb-3\'></i><span class=\'font-serif font-semibold text-lg\'>Honneyleth Gavina</span><span class=\'text-xs text-rose-main mt-1\'>hani.jpg placeholder</span></div>';">
+                        </div>
+
+                        <!-- Minimal Badge -->
+                        <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm border border-rose-border px-4 py-2 rounded-full shadow-md flex items-center space-x-2">
+                            <span class="w-2 h-2 rounded-full bg-rose-main animate-ping"></span>
+                            <span class="text-xs font-semibold text-slate-dark">SPC Student Nurse</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Text -->
+                <div class="md:col-span-7 space-y-6 text-center md:text-left order-2 md:order-1">
+                    <span class="inline-block px-3.5 py-1 rounded-full bg-rose-subtle/30 text-rose-main text-xs font-semibold tracking-wider uppercase border border-rose-border">
+                        3rd Year BSN Student • San Pablo Colleges
+                    </span>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-slate-dark font-normal leading-tight">
+                        Healing hands, <br class="hidden sm:inline">
+                        <span class="italic font-normal text-rose-main">compassionate</span> heart.
+                    </h1>
+
+                    <p class="text-slate-light text-base sm:text-lg max-w-xl font-light leading-relaxed">
+                        Hello! I am <strong class="text-slate-dark font-semibold">Honneyleth "Hani" Gavina</strong>. Dedicated to offering patient-focused nursing care, rooted in clinical precision and quiet grace.
+                    </p>
+
+                    <div class="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                        <a href="#about" class="w-full sm:w-auto px-7 py-3 rounded-full bg-rose-main text-white text-xs font-semibold uppercase tracking-wider hover:bg-rose-dark transition-all shadow-md shadow-rose-main/10 text-center">
+                            About My Journey
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-7 py-3 rounded-full bg-white border border-rose-border text-slate-dark text-xs font-semibold uppercase tracking-wider hover:bg-rose-bg transition-all text-center">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Minimalist Transitioning Bible Verses Section -->
+    <section id="verses" class="py-16 bg-white border-y border-rose-border/60">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center mb-8">
+                <span class="text-[11px] font-semibold text-rose-main uppercase tracking-widest block mb-1">Spiritual Foundation</span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-slate-dark font-normal">Faith & Inspiration</h2>
+            </div>
+
+            <!-- Verse Card Container -->
+            <div class="bg-rose-bg/60 border border-rose-border rounded-2xl p-8 sm:p-12 relative shadow-sm">
+                
+                <div class="relative min-h-[120px] flex items-center justify-center text-center">
+                    
+                    <!-- Slide 1 -->
+                    <div class="verse-slide active" data-index="0">
+                        <p class="font-serif text-xl sm:text-2xl text-slate-dark italic font-normal leading-relaxed">
+                            "God is within her, she will not fall; God will help her at break of day."
+                        </p>
+                        <span class="block mt-4 text-xs font-semibold text-rose-main tracking-widest uppercase">— Psalm 46:5</span>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="verse-slide" data-index="1">
+                        <p class="font-serif text-xl sm:text-2xl text-slate-dark italic font-normal leading-relaxed">
+                            "I can do all things through Christ who strengthens me."
+                        </p>
+                        <span class="block mt-4 text-xs font-semibold text-rose-main tracking-widest uppercase">— Philippians 4:13</span>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="verse-slide" data-index="2">
+                        <p class="font-serif text-xl sm:text-2xl text-slate-dark italic font-normal leading-relaxed">
+                            "Trust in the LORD with all your heart and lean not on your own understanding."
+                        </p>
+                        <span class="block mt-4 text-xs font-semibold text-rose-main tracking-widest uppercase">— Proverbs 3:5</span>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="verse-slide" data-index="3">
+                        <p class="font-serif text-xl sm:text-2xl text-slate-dark italic font-normal leading-relaxed">
+                            "He heals the brokenhearted and binds up their wounds."
+                        </p>
+                        <span class="block mt-4 text-xs font-semibold text-rose-main tracking-widest uppercase">— Psalm 147:3</span>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="verse-slide" data-index="4">
+                        <p class="font-serif text-xl sm:text-2xl text-slate-dark italic font-normal leading-relaxed">
+                            "She is clothed with strength and dignity; she can laugh at the days to come."
+                        </p>
+                        <span class="block mt-4 text-xs font-semibold text-rose-main tracking-widest uppercase">— Proverbs 31:25</span>
+                    </div>
+
+                </div>
+
+                <!-- Verse Controls & Interactive Actions -->
+                <div class="mt-8 pt-6 border-t border-rose-border/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    
+                    <div class="flex items-center space-x-2" id="verse-dots">
+                        <button class="w-2.5 h-2.5 rounded-full bg-rose-main transition-all" data-slide="0" aria-label="Slide 1"></button>
+                        <button class="w-2.5 h-2.5 rounded-full bg-rose-subtle transition-all" data-slide="1" aria-label="Slide 2"></button>
+                        <button class="w-2.5 h-2.5 rounded-full bg-rose-subtle transition-all" data-slide="2" aria-label="Slide 3"></button>
+                        <button class="w-2.5 h-2.5 rounded-full bg-rose-subtle transition-all" data-slide="3" aria-label="Slide 4"></button>
+                        <button class="w-2.5 h-2.5 rounded-full bg-rose-subtle transition-all" data-slide="4" aria-label="Slide 5"></button>
+                    </div>
+
+                    <!-- Interactive Action Buttons -->
+                    <div class="flex items-center space-x-3">
+                        <button id="copy-verse-btn" class="px-3 py-1.5 rounded-full border border-rose-border bg-white text-slate-light hover:text-rose-main text-xs font-medium transition-colors flex items-center gap-1.5">
+                            <i class="fa-regular fa-copy text-xs"></i>
+                            <span id="copy-text">Copy Verse</span>
+                        </button>
+
+                        <div class="flex space-x-1">
+                            <button id="prev-verse" class="w-8 h-8 rounded-full border border-rose-border bg-white hover:bg-rose-subtle/30 text-slate-dark text-xs transition-colors flex items-center justify-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </button>
+                            <button id="next-verse" class="w-8 h-8 rounded-full border border-rose-border bg-white hover:bg-rose-subtle/30 text-slate-dark text-xs transition-colors flex items-center justify-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-[11px] font-semibold text-rose-main uppercase tracking-widest block">About Me</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-slate-dark">Dedicated Student Nurse</h2>
+                    
+                    <p class="text-slate-light text-base leading-relaxed font-light">
+                        I am currently in my 3rd year pursuing a Bachelor of Science in Nursing at <strong class="text-slate-dark font-semibold">San Pablo Colleges</strong>. Nursing to me is a calling that blends patient advocacy, evidence-based practices, and human touch.
+                    </p>
+                    
+                    <p class="text-slate-light text-base leading-relaxed font-light">
+                        Through clinical rotations in hospital wards and community health immersions, I strive to embody kindness, attentiveness, and excellence in every nursing care plan I deliver.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-white border border-rose-border">
+                            <span class="text-[11px] uppercase tracking-wider text-slate-light block">Institution</span>
+                            <span class="text-sm font-semibold text-slate-dark">San Pablo Colleges</span>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white border border-rose-border">
+                            <span class="text-[11px] uppercase tracking-wider text-slate-light block">Program</span>
+                            <span class="text-sm font-semibold text-slate-dark">BS Nursing (3rd Year)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Values Grid -->
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-2xl border border-rose-border hover:border-rose-soft transition-all">
+                        <i class="fa-solid fa-hand-holding-heart text-2xl text-rose-main mb-3"></i>
+                        <h3 class="font-serif text-lg text-slate-dark font-medium mb-1">Compassion</h3>
+                        <p class="text-xs text-slate-light leading-relaxed">Empathetic patient interaction focused on emotional & physical comfort.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-rose-border hover:border-rose-soft transition-all">
+                        <i class="fa-solid fa-notes-medical text-2xl text-rose-main mb-3"></i>
+                        <h3 class="font-serif text-lg text-slate-dark font-medium mb-1">Clinical Care</h3>
+                        <p class="text-xs text-slate-light leading-relaxed">Adherence to sterile procedures, safety standards, and vitals monitoring.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-rose-border hover:border-rose-soft transition-all">
+                        <i class="fa-solid fa-people-group text-2xl text-rose-main mb-3"></i>
+                        <h3 class="font-serif text-lg text-slate-dark font-medium mb-1">Teamwork</h3>
+                        <p class="text-xs text-slate-light leading-relaxed">Seamless collaboration with medical staff, clinical instructors, and peers.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-rose-border hover:border-rose-soft transition-all">
+                        <i class="fa-solid fa-graduation-cap text-2xl text-rose-main mb-3"></i>
+                        <h3 class="font-serif text-lg text-slate-dark font-medium mb-1">Growth</h3>
+                        <p class="text-xs text-slate-light leading-relaxed">Continuous learning in modern pharmacology and patient care ethics.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Nursing Skills Section -->
+    <section id="skills" class="py-20 bg-white border-t border-rose-border/60">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <span class="text-[11px] font-semibold text-rose-main uppercase tracking-widest block mb-1">Capabilities</span>
+                <h2 class="font-serif text-3xl text-slate-dark">Clinical Competencies</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Skill Card 1 -->
+                <div class="p-8 rounded-2xl bg-rose-bg/40 border border-rose-border space-y-4">
+                    <div class="w-10 h-10 rounded-full bg-rose-subtle/40 flex items-center justify-center text-rose-main">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-slate-dark font-medium">Vital Signs & Assessment</h3>
+                    <p class="text-xs text-slate-light leading-relaxed">Accurate evaluation of BP, pulse, temperature, respiratory rate, and initial health histories.</p>
+                    <div class="pt-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-white text-[11px] font-medium text-rose-dark border border-rose-border">Bedside Care</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="p-8 rounded-2xl bg-rose-bg/40 border border-rose-border space-y-4">
+                    <div class="w-10 h-10 rounded-full bg-rose-subtle/40 flex items-center justify-center text-rose-main">
+                        <i class="fa-solid fa-syringe"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-slate-dark font-medium">Aseptic & Clinical Prep</h3>
+                    <p class="text-xs text-slate-light leading-relaxed">Infection control techniques, sterile glove donning, wound dressing changes, and equipment care.</p>
+                    <div class="pt-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-white text-[11px] font-medium text-rose-dark border border-rose-border">Sterile Techniques</span>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="p-8 rounded-2xl bg-rose-bg/40 border border-rose-border space-y-4">
+                    <div class="w-10 h-10 rounded-full bg-rose-subtle/40 flex items-center justify-center text-rose-main">
+                        <i class="fa-solid fa-clipboard-user"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-slate-dark font-medium">Documentation & FDAR</h3>
+                    <p class="text-xs text-slate-light leading-relaxed">Systematic nursing notes following FDAR charting formats and patient care plan formulations.</p>
+                    <div class="pt-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-white text-[11px] font-medium text-rose-dark border border-rose-border">Nursing Process</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Clinical Journey Section -->
+    <section id="journey" class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <span class="text-[11px] font-semibold text-rose-main uppercase tracking-widest block mb-1">Education</span>
+                <h2 class="font-serif text-3xl text-slate-dark">Clinical Academic Journey</h2>
+            </div>
+
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-3 sm:before:left-1/2 before:-ml-px before:w-0.5 before:bg-rose-border">
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-7 h-7 rounded-full bg-rose-main text-white text-xs border-4 border-rose-bg shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-rose-border shadow-sm">
+                        <span class="text-[11px] text-rose-main font-semibold uppercase">2022 - Present</span>
+                        <h3 class="font-serif text-lg font-semibold text-slate-dark mt-1">BS Nursing Student</h3>
+                        <p class="text-xs text-slate-light mt-1">San Pablo Colleges (SPC) • San Pablo City</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-7 h-7 rounded-full bg-rose-soft text-white text-xs border-4 border-rose-bg shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-rose-border shadow-sm">
+                        <span class="text-[11px] text-rose-main font-semibold uppercase">3rd Year Rotation</span>
+                        <h3 class="font-serif text-lg font-semibold text-slate-dark mt-1">Hospital Ward Duties</h3>
+                        <p class="text-xs text-slate-light mt-1">Hands-on patient care, vitals monitoring, medication administration prep under supervision.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div class="flex items-center justify-center w-7 h-7 rounded-full bg-rose-subtle text-rose-dark text-xs border-4 border-rose-bg shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                        <i class="fa-solid fa-house-medical"></i>
+                    </div>
+                    <div class="w-[calc(100%-2.5rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl border border-rose-border shadow-sm">
+                        <span class="text-[11px] text-rose-main font-semibold uppercase">Community Nursing</span>
+                        <h3 class="font-serif text-lg font-semibold text-slate-dark mt-1">Health Center Immersion</h3>
+                        <p class="text-xs text-slate-light mt-1">Conducting community health profiling, maternal-child consultations, and preventive education.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white border-t border-rose-border/60">
+        <div class="max-w-4xl mx-auto px-6">
+            
+            <div class="text-center max-w-xl mx-auto mb-12">
+                <span class="text-[11px] font-semibold text-rose-main uppercase tracking-widest block mb-1">Get In Touch</span>
+                <h2 class="font-serif text-3xl text-slate-dark">Connect With Hani</h2>
+                <p class="text-xs text-slate-light mt-2">Feel free to send a message for clinical inquiries or academic collaborations.</p>
+            </div>
+
+            <form id="contact-form" class="bg-rose-bg/40 p-8 sm:p-10 rounded-2xl border border-rose-border space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-dark mb-2">Name</label>
+                        <input type="text" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-white border border-rose-border focus:outline-none focus:ring-1 focus:ring-rose-main text-xs text-slate-dark">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-dark mb-2">Email</label>
+                        <input type="email" required placeholder="your.email@example.com" class="w-full px-4 py-3 rounded-xl bg-white border border-rose-border focus:outline-none focus:ring-1 focus:ring-rose-main text-xs text-slate-dark">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-dark mb-2">Message</label>
+                    <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-white border border-rose-border focus:outline-none focus:ring-1 focus:ring-rose-main text-xs text-slate-dark"></textarea>
+                </div>
+
+                <div id="form-feedback" class="hidden p-3 rounded-xl text-xs font-medium text-emerald-800 bg-emerald-50 border border-emerald-200">
+                    <i class="fa-solid fa-circle-check mr-1.5"></i> Message sent successfully to Honneyleth!
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-xl bg-rose-main text-white text-xs font-semibold uppercase tracking-wider hover:bg-rose-dark transition-all">
+                    Send Message
+                </button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer class="py-8 bg-rose-bg border-t border-rose-border text-center text-xs text-slate-light">
+        <div class="max-w-6xl mx-auto px-6 space-y-2">
+            <p class="font-serif font-medium text-slate-dark">Honneyleth "Hani" Gavina</p>
+            <p>&copy; <span id="year"></span> San Pablo Colleges Student Nurse Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile drawer toggle
+        const toggleBtn = document.getElementById('mobile-toggle');
+        const drawer = document.getElementById('mobile-drawer');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = drawer.classList.contains('hidden');
+            if (isHidden) {
+                drawer.classList.remove('hidden');
+                toggleIcon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                drawer.classList.add('hidden');
+                toggleIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                drawer.classList.add('hidden');
+                toggleIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Bible verse slider logic
+        const slides = document.querySelectorAll('.verse-slide');
+        const dots = document.querySelectorAll('#verse-dots button');
+        const prevBtn = document.getElementById('prev-verse');
+        const nextBtn = document.getElementById('next-verse');
+        const copyBtn = document.getElementById('copy-verse-btn');
+        const copyText = document.getElementById('copy-text');
+        
+        let currentVerseIndex = 0;
+        let verseTimer;
+
+        function showVerse(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (dots[i]) {
+                    dots[i].classList.replace('bg-rose-main', 'bg-rose-subtle');
+                }
+            });
+
+            currentVerseIndex = (index + slides.length) % slides.length;
+            slides[currentVerseIndex].classList.add('active');
+            if (dots[currentVerseIndex]) {
+                dots[currentVerseIndex].classList.replace('bg-rose-subtle', 'bg-rose-main');
+            }
+        }
+
+        function nextVerse() {
+            showVerse(currentVerseIndex + 1);
+        }
+
+        function prevVerse() {
+            showVerse(currentVerseIndex - 1);
+        }
+
+        function startAutoVerse() {
+            verseTimer = setInterval(nextVerse, 6000);
+        }
+
+        function resetAutoVerse() {
+            clearInterval(verseTimer);
+            startAutoVerse();
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevVerse();
+            resetAutoVerse();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextVerse();
+            resetAutoVerse();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showVerse(index);
+                resetAutoVerse();
+            });
+        });
+
+        startAutoVerse();
+
+        // Copy active verse text logic
+        copyBtn.addEventListener('click', () => {
+            const activeSlide = slides[currentVerseIndex];
+            const verseQuote = activeSlide.querySelector('p').innerText;
+            const verseRef = activeSlide.querySelector('span').innerText;
+            const textToCopy = `${verseQuote} ${verseRef}`;
+
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            copyText.textContent = 'Copied!';
+            setTimeout(() => {
+                copyText.textContent = 'Copy Verse';
+            }, 2000);
+        });
+
+        // Contact Form Feedback
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            formFeedback.classList.remove('hidden');
+            contactForm.reset();
+            setTimeout(() => {
+                formFeedback.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
